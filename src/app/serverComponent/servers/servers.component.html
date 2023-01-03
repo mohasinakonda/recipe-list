@@ -1,0 +1,32 @@
+<div class="w-1/4 m-auto shadow bg-slate-50 rounded p-5">
+  <p class="pb-5">Add new server or blueprint</p>
+  <input
+    class="border outline-none p-2 w-full"
+    type="text"
+    placeholder="server name"
+    #server
+  />
+  <input
+    class="border outline-none p-2 w-full mt-3"
+    type="text"
+    placeholder="server content"
+  />
+  <div class="mt-3">
+    <button
+      (click)="onServerCreate(server)"
+      class="p-3 bg-blue-500 shadow-lg rounded"
+    >
+      Add server
+    </button>
+    <button class="p-3 bg-blue-500 shadow-lg rounded ml-3">
+      Add blueprint
+    </button>
+  </div>
+</div>
+
+<div class="w-1/4 m-auto shadow bg-sky-100 rounded p-5 mt-5">
+  <div>
+    <app-server (data)="onUpdate($event)" [server]="serversValue"></app-server>
+    <!--  -->
+  </div>
+</div>

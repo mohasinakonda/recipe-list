@@ -1,0 +1,36 @@
+<div
+  *ngFor="let server of server"
+  class="mt-2 bg-white py-3 px-2 rounded shadow"
+>
+  <ul>
+    <li class="mt-2">
+      <div *ngIf="!isOpen" class="flex justify-between">
+        <span>
+          {{ server }}
+        </span>
+        <span
+          class="bg-orange-300 px-3 py-1 rounded shadow-2xl"
+          (click)="onEdit()"
+          >edit</span
+        >
+      </div>
+      <div *ngIf="isOpen" class="flex justify-between">
+        <span>
+          <input
+            class="border outline-none p-2 w-full mt-3"
+            type="text"
+            [value]="server"
+            [(ngModel)]="updateData"
+          />
+        </span>
+
+        <button
+          class="px-3 py-1 rounded shadow-2xl bg-green-400"
+          (click)="onUpdate()"
+        >
+          update
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

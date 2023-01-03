@@ -1,1 +1,44 @@
-<p>shoping-list works!</p>
+<div class="w-1/2">
+  <div class="flex gap-4">
+    <div>
+      <label class="block font-semibold py-2" for="ingredient"
+        >ingredient</label
+      >
+      <input
+        type="text"
+        class="border p-1 outline-none"
+        name="ingredient"
+        #ingredientName
+      />
+    </div>
+    <div>
+      <label class="block font-semibold py-2">Amount</label>
+      <input
+        class="p-1 border outline-none"
+        type="number"
+        name="amount"
+        #amount
+      />
+    </div>
+  </div>
+  <div class="my-3">
+    <button
+      (click)="onAddIngredient()"
+      class="bg-blue-500 px-5 py-2 rounded mr-3"
+    >
+      Add
+    </button>
+    <button class="bg-red-400 px-5 py-2 rounded mr-3">Delete</button>
+    <button class="px-5 py-2 rounded border">Clear</button>
+  </div>
+</div>
+<hr />
+<div class="w-1/2 py-5">
+  <a role="button" class="" *ngFor="let ingredient of ingredients">
+    <ul>
+      <li class="px-2 py-3 border border-red-100">
+        {{ ingredient.name }} ({{ ingredient.amount }})
+      </li>
+    </ul>
+  </a>
+</div>
