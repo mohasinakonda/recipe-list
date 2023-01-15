@@ -1,47 +1,19 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
 })
-export class RecipeListComponent {
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
-  recipes: Recipe[] = [
-    new Recipe(
-      'test recipe 1',
-      'this is test  desc',
-      'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg'
-    ),
-    new Recipe(
-      'test recipe 2',
-      'this is test  desc',
-      'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg'
-    ),
-    new Recipe(
-      'test recipe 3',
-      'this is test  desc',
-      'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg'
-    ),
-    new Recipe(
-      'test recipe 4',
-      'this is test  desc',
-      'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg'
-    ),
-    new Recipe(
-      'test recipe 5',
-      'this is test  desc',
-      'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg'
-    ),
-    new Recipe(
-      'test recipe 6',
-      'this is test  desc',
-      'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg'
-    ),
-  ];
-
-  onRecipeSelected(recipe: Recipe) {
-    this.recipeWasSelected.emit(recipe);
+export class RecipeListComponent implements OnInit {
+  recipes: Recipe[];
+  constructor(private recipeService: RecipeService) {}
+  ngOnInit(): void {
+    this.recipes = this.recipeService.getRecipes();
   }
+  // onRecipeSelected() {
+  //  this.recipeService.recipeSelected.emit(this.recipes)
+  // }
 }

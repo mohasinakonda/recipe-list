@@ -1,12 +1,12 @@
 <div class="grid gap-4 mt-5">
   <div class="col-start-1 col-end-4">
     <button class="bg-sky-400 px-4 py-2 rounded mt-3">Add recipe</button>
-    <app-recipe-list (recipeWasSelected)="recipe = $event"></app-recipe-list>
+    <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-start-4 col-end-12">
     <app-recipe-details
-      [recipeitem]="recipe"
-      *ngIf="recipe; else noData"
+      [recipeitem]="selectedRecipe"
+      *ngIf="selectedRecipe; else noData"
     ></app-recipe-details>
   </div>
   <ng-template #noData>

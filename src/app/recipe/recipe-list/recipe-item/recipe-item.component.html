@@ -4,14 +4,14 @@
   (click)="recipeHandler()"
 >
   <div>
-    <div class="text-2xl">{{ recipe?.name }}</div>
-    <p class="text-gray-600">{{ recipe?.description }}</p>
+    <div class="text-2xl">{{ selected.name }}</div>
+    <p class="text-gray-600">{{ selected.description }}</p>
   </div>
   <div class="w-48">
     <img
       class="w-full shadow-2xl rounded-lg"
-      [src]="recipe?.imagePath"
-      alt="{{ recipe?.name }}"
+      [src]="selected.imagePath"
+      alt="{{ selected.name }}"
     />
   </div>
 </a>

@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestComponent } from './test/test.component';
 import { CustomDirective } from './shared/custom.directive';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CustomDirective } from './shared/custom.directive';
     ServerComponent,
     HomeComponent,
     TestComponent,
+    UnlessDirective,
   ],
   imports: [
     BrowserModule,
